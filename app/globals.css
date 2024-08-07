@@ -31,3 +31,12 @@ body {
     text-wrap: balance;
   }
 }
+
+.hero-gradient {
+  background: linear-gradient(
+    97.86deg,
+    #afd5e8 0%,
+    #34acc7 53.65%,
+    #bf5b04 100%
+  );
+}
