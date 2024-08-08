@@ -21,13 +21,23 @@ export default function Navbar() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="w-full h-16 p-1 m-auto text-center relative z-10  flex"
+      className="w-full h-20 p-3 px-20 m-auto text-center relative z-10 flex justify-start"
     >
-      <Image src="" alt="logo" />
+      <Image
+        src="/logo-3.png"
+        alt="logo"
+        width={100}
+        height={100}
+        className="mx-10"
+      />
 
-      <ul className="flex w-2/3 justify-start text-xl ">
+      <ul className="flex w-2/3 justify-start text-xl text-black">
         {navLinks.map((link, index) => (
-          <Link href={link.href} key={index} className="mx-5 p-1 tracking-widest">
+          <Link
+            href={link.href}
+            key={index}
+            className="mx-5 p-3 tracking-widest"
+          >
             {link.title}
           </Link>
         ))}

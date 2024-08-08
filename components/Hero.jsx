@@ -15,7 +15,7 @@ export default function Hero() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={`h-full mx-auto border flex flex-col`}
+        className={`h-full mx-auto flex flex-col`}
       >
         <motion.div
           variants={fadeIn("bottom", "tween", 0.2, 1)}
@@ -28,9 +28,9 @@ export default function Hero() {
             alt="hero_cover"
             className="w-full h-screen object-cover relative"
           />
-          <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.4)]" />
-          <div className="w-[484px] h-[484px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.3)]" />
-          <div className="w-[450px] h-[450px] absolute rounded-full shadow-[0_0_0_17px_rgba(148,106,62,0.4)]" />
+          <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.3)]" />
+          <div className="w-[484px] h-[484px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.2)]" />
+          <div className="w-[450px] h-[450px] absolute rounded-full shadow-[0_0_0_17px_rgba(157,63,4,0.2)]" />
         </motion.div>
         <div className="w-full h-4/5 m-auto flex flex-col justify-center z-10 ">
           <div className="text-8xl font-mono tracking-widest leading-[7rem]">
@@ -44,12 +44,15 @@ export default function Hero() {
             dreams can come true...
           </motion.p>
           <motion.div>
-            <Link href="" className="tracking-[10px] text-yellow-600 p-2">
+            <Link
+              href="/explore"
+              className="tracking-[10px] text-yellow-600 p-2"
+            >
               EXPLORE
               <Image
                 src="/arrow.svg"
-                width={20}
-                height={20}
+                width={12}
+                height={12}
                 alt="arrow"
                 className="inline m-2"
               />
@@ -58,7 +61,7 @@ export default function Hero() {
         </div>
       </motion.div>
       <motion.button className="z-10 w-72 h-16 p-2 absolute right-0 top-[25rem] text-lg font-extrabold tracking-[10px] bg-stone-600/40 backdrop-blur-sm backdrop-brightness-150">
-        <Link href="">THE PARK ➡</Link>
+        <Link href="/park">THE PARK ➡</Link>
       </motion.button>
     </section>
   );
