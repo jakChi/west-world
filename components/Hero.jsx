@@ -9,30 +9,31 @@ import { fadeIn, slideIn, staggerContainer, textVariant } from "@/utils/motion";
 
 export default function Hero() {
   return (
-    <section className="w-2/3 h-screen m-auto flex items-center">
+    <section className="relative w-full h-screen flex items-center">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={`h-full mx-auto flex flex-col`}
+        className={`h-full w-full mx-auto flex flex-col`}
       >
         <motion.div
           variants={fadeIn("bottom", "tween", 0.2, 1)}
-          className="absolute top-0 left-0 w-full flex justify-center items-center z-0"
+          className="absolute left-0 w-full h-full flex justify-center items-center z-0"
         >
           <Image
-            src="/Westworld-hero.jpg"
+            src="/park-1.jpg"
             width={1200}
             height={1080}
             alt="hero_cover"
-            className="w-full h-screen object-cover relative"
+            priority
+            className="w-full h-full object-cover relative"
           />
           <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.3)]" />
           <div className="w-[484px] h-[484px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.2)]" />
           <div className="w-[450px] h-[450px] absolute rounded-full shadow-[0_0_0_17px_rgba(157,63,4,0.2)]" />
         </motion.div>
-        <div className="w-full h-4/5 m-auto flex flex-col justify-center z-10 ">
+        <div className="my-auto mt-36 px-64 h-4/5 w-4/5 flex flex-col justify-center z-10 ">
           <div className="text-8xl font-mono tracking-widest leading-[7rem]">
             <motion.h1>LIVE</motion.h1>
             <motion.h1>WITHOUT</motion.h1>

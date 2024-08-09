@@ -21,7 +21,7 @@ export default function Navbar() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="w-full h-20 p-3 px-20 m-auto text-center relative z-10 flex justify-start"
+      className="absolute w-full h-20 p-3 px-20 m-auto text-center z-10 flex justify-start"
     >
       <Image
         src="/logo-3.png"
