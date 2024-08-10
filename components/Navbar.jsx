@@ -8,10 +8,11 @@ import Link from "next/link";
 //import { navVariants } from "@/utils/motion";
 
 const navLinks = [
-  { title: "THE PARK", href: "" },
-  { title: "THE HOSTS", href: "" },
-  { title: "EXPERIENCE", href: "" },
-  { title: "PACKAGES", href: "" },
+  { title: "THE PARK", href: "/park" },
+  { title: "THE HOSTS", href: "/park#hosts" },
+  { title: "EXPERIENCE", href: "/explore" },
+  { title: "PACKAGES", href: "/explore" },
+  { title: "ABOUT", href: "/about" },
 ];
 
 export default function Navbar() {

@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import ExploreCard from "@/components/ExploreCard";
+import { NarrativeCard } from "@/components/NarrativeCard";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   TypingText,
@@ -51,7 +52,7 @@ const parks = [
     img: "/park-4.jpg",
     logo: park4Logo,
     description:
-      "This is Medievalworld, where we have reconstructed 13th-century Europe. A world of chivalry and combat, romance and excitement. Our teams of engineers have spared no expense in this re-creation, precise to the smallest detail. We added some fantasy falvour in order to make your quest more mistical, you can even see the most amazing creatures flying somewhere in the highest rocks.",
+      "This is Medievalworld, where we have reconstructed 13th-century Europe. A world of chivalry and combat, romance and excitement. Our teams of engineers have spared no expense in this re-creation, precise to the smallest detail. We added some fantasy falvours in order to make your quest more mistical.",
   },
   {
     id: "park-5",
@@ -70,159 +71,148 @@ const parks = [
       "Come and experience the grandeur and love of a place lost in time. If being pampered by our world-class spa isn’t your cup of Darjeeling Tea, the park's jungles and mountains are your only chance to glimpse magnificent beasts long vanished from your world.",
   },
 ];
+const narratives = [
+  {
+    id: "narrative-1",
+    title: "The Outlaw’s Quest",
+    plot: "Guests can join a notorious gang and participate in a series of high-stakes heists, train robberies, and showdowns. Choices made during the quest will affect their reputation and alliances within the park, leading to different endings.",
+    img: "/narrative-1.jpg",
+    park: "Westworld",
+  },
+  {
+    id: "narrative-2",
+    title: "The Lawman’s Dilemma",
+    plot: "Step into the shoes of a sheriff or deputy tasked with bringing justice to a lawless town. Investigate crimes, solve mysteries, and decide whether to uphold the law or bend it to your will.",
+    img: "/narrative-2.jpg",
+    park: "Westworld",
+  },
+  {
+    id: "narrative-3",
+    title: "The Rancher’s Legacy",
+    plot: "Help a family of ranchers defend their homestead from land grabbers and rival ranchers. Guests can choose to use diplomacy, form alliances, or take up arms to protect the land.",
+    img: "/narrative-3.jpg",
+    park: "Westworld",
+  },
+  {
+    id: "narrative-4",
+    title: "The Ronin’s Path",
+    plot: "Assume the role of a wandering samurai seeking redemption. Guests can master the art of the sword, face off against powerful adversaries, and make choices that determine their legacy.",
+    img: "/narrative-4.jpg",
+    park: "Shōgunworld",
+  },
+  {
+    id: "narrative-5",
+    title: "The Geisha’s Secret",
+    plot: "Unravel the mysteries of a geisha house, where intrigue and danger lurk behind every silk screen. Guests must navigate complex social dynamics and uncover hidden plots to protect those they care about.",
+    img: "/narrative-5.jpg",
+    park: "Shōgunworld",
+  },
+  {
+    id: "narrative-6",
+    title: "The Daimyo’s Court",
+    plot: "Become an advisor to a powerful daimyo, navigating the treacherous waters of feudal politics. Guests must balance the demands of honor, loyalty, and power to ensure their daimyo’s supremacy.",
+    img: "/narrative-6.jpg",
+    park: "Shōgunworld",
+  },
+];
 
-const narrativeText =
-  "Delos Destinations employs a team of world-class writers, designers, and storytellers to craft intricate, multi-layered narratives that cater to a wide range of guest preferences. These narratives are designed to be both flexible and adaptive, allowing guests to interact with the world and its characters in ways that shape the story's outcome.";
-const introText =
-  "Delos Destinations is the premier name in immersive entertainment, offering unparalleled experiences in their state-of-the-art theme parks. Each park is a fully realized world where guests can step into the past or an entirely different reality, living out their fantasies in environments that are as authentic as they are thrilling. These parks are not just attractions but entire worlds, where the boundary between fiction and reality blurs.";
+const narrativeIntro =
+  "The narratives of the Delos Destinations parks are designed to provide a wide range of experiences, each catering to different interests and desires. Here are some examples of narratives that could be found in different parks.";
 
 export default function Explore() {
   const [activePark, setActivePark] = useState("park-1");
+  const [activeNarrative, setActiveNarrative] = useState(0);
 
   return (
-    <div className="w-[95%] m-auto">
-      <section id="about" className="w-4/5 m-auto">
+    <section id="explore" className="w-[90%] m-auto">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className={`mx-auto flex flex-col`}
+      >
+        <TypingText title={`| The World`} textStyles="text-center" />
         <TitleText
-          title="Welcome to the Delos Destinations"
-          textStyles="text-3xl text-center m-20"
+          title={
+            <>
+              Choose the world you want <br className="md:block hidden" /> to
+              explore
+            </>
+          }
+          textStyles="text-center text-6xl"
         />
-
-        <div className="gradient-02 z-0" />
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.25 }}
-          className={`mx-auto flex-col`}
-        >
-          <div>
-            <TypingText
-              title="| about Delos Destinations"
-              textStyles="text-center"
+        <DescriptionText
+          text={
+            "Delos Destinations is offering you an unparalleled experiences in our state-of-the-art theme parks. Each park is a fully realized world where you can step into the past or an entirely different reality, living out your fantasies in environments that are as authentic as you are thrilling. These parks are not just attractions but entire worlds, where the boundary between fiction and reality blurs."
+          }
+        />
+        <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
+          {parks.map((park, index) => (
+            <ExploreCard
+              key={park.id}
+              {...park}
+              index={index}
+              active={activePark}
+              handleClick={setActivePark}
             />
-            <DescriptionText text={introText} />
-          </div>
+          ))}
+        </div>
+      </motion.div>
+      <motion.div className="m-auto my-32 h-screen">
+        <TypingText title={`| The Narrative`} />
+        <TitleText
+          title={"Explore Dimanic Narratives"}
+          textStyles={"text-center text-6xl"}
+        />
+        <DescriptionText text={narrativeIntro} />
 
-          <div>
-            <TypingText
-              title="| addaptive narratives"
-              textStyles="text-center"
-            />
-            <DescriptionText text={narrativeText} />
-
-            <div className="m-20 flex justify-center items-center">
-              <Image
-                src={"/branch.jpg"}
-                width={500}
-                height={500}
-                alt="branch"
-              />
-              <div className="w-1/2 m-10">
-                <TitleText
-                  title={"Branching Storylines"}
-                  textStyles={"text-2xl my-16"}
-                />
-                <p className="text-xl tracking-wide">
-                  Each park features numerous interconnected storylines, ranging
-                  from simple encounters to complex, epic quests. These stories
-                  are designed to branch based on the decisions made by guests.
-                  For example, in Westworld, a simple conversation with a host
-                  could lead to a series of events that take you on a thrilling
-                  journey across the frontier.
-                </p>
-              </div>
-            </div>
-
-            <div className="m-20 flex justify-center items-center">
-              <Image
-                src={"/character-development.jpg"}
-                width={500}
-                height={500}
-                alt="branch"
-                className="rounded-full"
-              />
-              <div className="w-1/2 m-10">
-                <TitleText
-                  title={"Character Development"}
-                  textStyles={"text-2xl my-16"}
-                />
-                <p className="text-xl tracking-wide">
-                  Hosts, the lifelike androids that populate the parks, are
-                  programmed with deep backstories and personalities, allowing
-                  for rich character interactions. Guests can form relationships
-                  with these characters, which evolve based on their actions and
-                  choices. A guest might become the trusted ally of a noble
-                  samurai in Shogunworld or a feared outlaw in Westworld,
-                  depending on their decisions.
-                </p>
-              </div>
-            </div>
-
-            <div className="m-20 flex justify-center items-center">
-              <Image
-                src={"/dinamic-environment.jpg"}
-                width={500}
-                height={500}
-                alt="branch"
-                className="rounded-3xl"
-              />
-              <div className="w-1/2 m-10">
-                <TitleText
-                  title={"Dinamic Environment"}
-                  textStyles={"text-2xl my-16"}
-                />
-                <p className="text-xl tracking-wide">
-                  The parks are designed to react to the choices made by guests.
-                  For instance, if a guest decides to rob a bank in Westworld,
-                  the town’s law enforcement might increase its presence,
-                  creating new challenges and opportunities for other guests.
-                  This dynamic environment ensures that no two visits are the
-                  same.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <motion.img
-            variants={fadeIn("up", "tween", 0.3, 1)}
-            src="/arrow.svg"
-            alt="arrow down"
-            className="w-[18px] h-[28px] object-contain mt-[28px]"
-          />
-        </motion.div>
-      </section>
-      <section id="explore" className="m-auto">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.25 }}
-          className={` mx-auto flex flex-col`}
+        <div
+          className={`relative w-4/5 grid grid-cols-3 gap-10 m-auto ${
+            activeNarrative
+              ? "before:blur-sm before:absolute before:bg-black before:w-full before:h-full "
+              : null
+          }`}
         >
-          <TypingText title={`| The World`} textStyles="text-center" />
-          <TitleText
-            title={
-              <>
-                Choose the world you want <br className="md:block hidden" /> to
-                explore
-              </>
-            }
-            textStyles="text-center"
-          />
-          <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
-            {parks.map((park, index) => (
-              <ExploreCard
-                key={park.id}
-                {...park}
-                index={index}
-                active={activePark}
-                handleClick={setActivePark}
+          {narratives.map((narrative, index) => (
+            <motion.div
+              key={index}
+              layoutId={narrative.id}
+              onClick={() => !activeNarrative && setActiveNarrative(narrative)}
+              className={`w-[90%] h-72 m-auto rounded-3xl p-3 cursor-pointer`}
+            >
+              <motion.img
+                src={narrative.img}
+                className="object-cover object-top w-full h-2/3 rounded-2xl"
               />
-            ))}
-          </div>
-        </motion.div>
-      </section>
-    </div>
+              <motion.h2 className="text-xl text-center m-4">
+                {narrative.title}
+              </motion.h2>
+            </motion.div>
+          ))}
+          <AnimatePresence>
+            {activeNarrative && (
+              <motion.div
+                layoutId={activeNarrative.id}
+                className={`absolute -top-5 left-44 w-[70%] h-[60vh] rounded-3xl p-3 bg-amber-900`}
+                onClick={() => setActiveNarrative(null)}
+              >
+                <motion.img
+                  src={activeNarrative.img}
+                  className="object-cover object-top w-full h-2/3 rounded-2xl"
+                />
+                <motion.h5 className="text-lg my-5">
+                  {activeNarrative.plot}
+                </motion.h5>
+                <motion.h2 className="text-3xl font-extrabold">
+                  {activeNarrative.title}
+                </motion.h2>
+                <motion.button className="absolute top-5 right-5 bg-amber-900 p-2 w-10 h-10 rounded-full">❌</motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
+    </section>
   );
 }

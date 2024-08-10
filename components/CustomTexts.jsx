@@ -6,7 +6,7 @@ import { textContainer, textVariant, textVariant2 } from "@/utils/motion";
 export const TypingText = ({ title, textStyles }) => (
   <motion.p
     variants={textContainer}
-    className={`w-1/3 my-10 m-auto font-mono text-2xl bg-clip-text bg-gradient-to-r from-violet-500 to-teal-500 text-transparent ${textStyles}`}
+    className={`w-fit my-6 m-auto font-mono text-2xl bg-clip-text bg-gradient-to-r from-violet-500 to-teal-500 text-transparent ${textStyles}`}
   >
     {Array.from(title).map((letter, index) => (
       <motion.span variants={textVariant2} key={index}>
@@ -21,7 +21,7 @@ export const TitleText = ({ title, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold text-white ${textStyles}`}
+    className={`m-14 font-bold text-violet-300 ${textStyles}`}
   >
     {title}
   </motion.h2>
@@ -34,7 +34,7 @@ export const DescriptionText = ({ text }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className="mt-[8px] text-2xl font-light text-center text-secondary-white"
+    className="m-10 text-2xl font-light text-center text-teal-200"
   >
     {text}
   </motion.p>
