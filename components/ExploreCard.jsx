@@ -47,11 +47,11 @@ export default function ExploreCard({
           {name}
         </h3>
       ) : (
-        <div className="absolute bottom-0 p-8 flex justify-start w-full flex-col bg-[rgba(0,0,0,0.7)] rounded-b-[24px]">
+        <div className="absolute bottom-0 p-8 flex justify-start w-full max-h-72 flex-col bg-[rgba(0,0,0,0.7)] rounded-b-[24px]">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ type: "spring", delay: 0.3, duration: 1 }}
+            transition={{ type: "spring", delay: 0.1, duration: 1 }}
             className="font-extralight text-[16px] text-white"
           >
             {description}

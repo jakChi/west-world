@@ -1,17 +1,20 @@
 "use client";
 
-import React from 'react'
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-import { TitleText, TypingText, DescriptionText } from '@/components/CustomTexts';
-import { staggerContainer, fadeIn } from '@/utils/motion';
+import {
+  TitleText,
+  TypingText,
+  DescriptionText,
+} from "@/components/CustomTexts";
+import { staggerContainer, fadeIn } from "@/utils/motion";
 
 const introText =
   "Delos Destinations is the premier name in immersive entertainment, offering unparalleled experiences in their state-of-the-art theme parks. Each park is a fully realized world where guests can step into the past or an entirely different reality, living out their fantasies in environments that are as authentic as they are thrilling. These parks are not just attractions but entire worlds, where the boundary between fiction and reality blurs.";
 const narrativeText =
   "Delos Destinations employs a team of world-class writers, designers, and storytellers to craft intricate, multi-layered narratives that cater to a wide range of guest preferences. These narratives are designed to be both flexible and adaptive, allowing guests to interact with the world and its characters in ways that shape the story's outcome.";
-
 
 export default function About() {
   return (
@@ -31,11 +34,39 @@ export default function About() {
         className={`mx-auto flex-col`}
       >
         <div>
-          <TypingText
-            title="| about Delos Destinations"
-            textStyles="text-center"
-          />
+          <TypingText title="| Delos Destinations" textStyles="text-center" />
           <DescriptionText text={introText} />
+
+          <motion.div className="flex w-full justify-around">
+            <Image
+              src={"/arnoldWeber.jpg"}
+              width={400}
+              height={600}
+              alt="Arnold Weber"
+              className="rounded-3xl object-cover"
+            />
+            <Image
+              src={"/robertFord.jpg"}
+              width={400}
+              height={600}
+              alt="Robert Ford"
+              className="rounded-3xl object-cover"
+            />
+            <Image
+              src={"/jamesDelos.jpg"}
+              width={400}
+              height={600}
+              alt="James Delos"
+              className="rounded-3xl object-cover"
+            />
+          </motion.div>
+
+          <DescriptionText
+            textStyles={"bg-slate-500/50 p-4 "}
+            text={
+              "Westworld was conceived by three visionaries: James Delos, Robert Ford, and Arnold Weber. Together, they dreamed of creating a new frontier in entertainment, pushing the boundaries of what was possible with technology and storytelling."
+            }
+          />
         </div>
 
         <motion.img

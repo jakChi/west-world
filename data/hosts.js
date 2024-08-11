@@ -1,0 +1,121 @@
+const dataSample = [
+  {
+    id: "entry",
+    name: "entry",
+    lastName: "entry",
+    gender: "entry",
+    age: "entry",
+    importance: "entry",
+    history: [
+      {
+        narrative: "entry",
+        description: "entry",
+        relevantHosts: ["entry"],
+        park: "entry",
+        locations: ["entry"],
+        duration: "entry",
+        changeDate: "entry",
+        changeReason: "entry",
+      },
+    ],
+  },
+];
+
+export const hosts = [
+  {
+    id: "host-1",
+    name: "Dolores",
+    lastName: "Abernathy",
+    gender: "female",
+    age: "old",
+    imgUrl: "/host-1.jpg",
+    importance: "high",
+    history: [
+      {
+        narrative: "Rancher's legacy",
+        description:
+          "she's a happy woman and a lovely daughter, who tires to look at beauty in the world.",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+      {
+        narrative: "second narrative",
+        description: "bla bla",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+    ],
+  },
+  {
+    id: "host-1",
+    name: "Dolores",
+    lastName: "Abernathy",
+    gender: "female",
+    age: "old",
+    imgUrl: "/host-1.jpg",
+    importance: "high",
+    history: [
+      {
+        narrative: "Rancher's legacy",
+        description:
+          "she's a happy woman and a lovely daughter, who tires to look at beauty in the world.",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+      {
+        narrative: "second narrative",
+        description: "bla bla",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+    ],
+  },
+  {
+    id: "host-1",
+    name: "Dolores",
+    lastName: "Abernathy",
+    gender: "female",
+    age: "old",
+    imgUrl: "/host-1.jpg",
+    importance: "high",
+    history: [
+      {
+        narrative: "Rancher's legacy",
+        description:
+          "she's a happy woman and a lovely daughter, who tires to look at beauty in the world.",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+      {
+        narrative: "second narrative",
+        description: "bla bla",
+        relevantHosts: ["Todd", "father"],
+        park: "park-1",
+        locations: ["Abernathy Ranch", "Sweetwater"],
+        duration: "2 years, 4 months, 15 days",
+        changeDate: "bla bla",
+        changeReason: "bla bla",
+      },
+    ],
+  },
+];

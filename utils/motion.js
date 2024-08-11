@@ -68,7 +68,7 @@ export const textContainer = {
   },
   show: (i = 1) => ({
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: i * 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: i * 0.1},
   }),
 };
 
@@ -157,5 +157,25 @@ export const footerVariants = {
       stiffness: 80,
       delay: 0.5,
     },
+  },
+};
+
+export const gridContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.6,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+export const gridItem = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
   },
 };

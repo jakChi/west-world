@@ -12,7 +12,12 @@ import {
   TitleText,
   DescriptionText,
 } from "@/components/CustomTexts";
-import { staggerContainer, fadeIn } from "@/utils/motion";
+import {
+  staggerContainer,
+  fadeIn,
+  gridContainer,
+  gridItem,
+} from "@/utils/motion";
 
 import park1Logo from "@/public/park-1-logo.png";
 import park2Logo from "@/public/park-2-logo.png";
@@ -129,7 +134,7 @@ export default function Explore() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: "some" }}
         className={`mx-auto flex flex-col`}
       >
         <TypingText title={`| The World`} textStyles="text-center" />
@@ -159,7 +164,13 @@ export default function Explore() {
           ))}
         </div>
       </motion.div>
-      <motion.div className="m-auto my-32 h-screen">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: "some" }}
+        className="m-auto my-32 h-screen"
+      >
         <TypingText title={`| The Narrative`} />
         <TitleText
           title={"Explore Dimanic Narratives"}
@@ -167,19 +178,23 @@ export default function Explore() {
         />
         <DescriptionText text={narrativeIntro} />
 
-        <div
-          className={`relative w-4/5 grid grid-cols-3 gap-10 m-auto ${
+        <motion.div
+          className={`relative w-4/5 grid grid-cols-3 gap-10 m-auto before:absolute  before:transition-all before:duration-300 ${
             activeNarrative
-              ? "before:blur-sm before:absolute before:bg-black before:w-full before:h-full "
+              ? "before:w-full before:h-full before:backdrop-blur-sm "
               : null
           }`}
+          variants={gridContainer}
+          initial="hidden"
+          whileInView="visible"
         >
           {narratives.map((narrative, index) => (
             <motion.div
               key={index}
               layoutId={narrative.id}
+              variants={gridItem}
               onClick={() => !activeNarrative && setActiveNarrative(narrative)}
-              className={`w-[90%] h-72 m-auto rounded-3xl p-3 cursor-pointer`}
+              className={`w-full h-72 m-auto rounded-3xl p-3 cursor-pointer hover:bg-amber-700/40  transition-colors delay-200 duration-200 hover:delay-0`}
             >
               <motion.img
                 src={narrative.img}
@@ -195,7 +210,6 @@ export default function Explore() {
               <motion.div
                 layoutId={activeNarrative.id}
                 className={`absolute -top-5 left-44 w-[70%] h-[60vh] rounded-3xl p-3 bg-amber-900`}
-                onClick={() => setActiveNarrative(null)}
               >
                 <motion.img
                   src={activeNarrative.img}
@@ -207,11 +221,16 @@ export default function Explore() {
                 <motion.h2 className="text-3xl font-extrabold">
                   {activeNarrative.title}
                 </motion.h2>
-                <motion.button className="absolute top-5 right-5 bg-amber-900 p-2 w-10 h-10 rounded-full">❌</motion.button>
+                <motion.button
+                  className="absolute top-5 right-5 bg-amber-900 p-2 w-10 h-10 rounded-full"
+                  onClick={() => setActiveNarrative(null)}
+                >
+                  ❌
+                </motion.button>
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

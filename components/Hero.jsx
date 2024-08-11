@@ -18,7 +18,7 @@ export default function Hero() {
         className={`h-full w-full mx-auto flex flex-col`}
       >
         <motion.div
-          variants={fadeIn("bottom", "tween", 0.2, 1)}
+          variants={fadeIn("left", "tween", 0, 1)}
           className="absolute left-0 w-full h-full flex justify-center items-center z-0"
         >
           <Image
@@ -29,7 +29,7 @@ export default function Hero() {
             priority
             className="w-full h-full object-cover relative"
           />
-          <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.3)]" />
+          <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.4)]" />
           <div className="w-[484px] h-[484px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.2)]" />
           <div className="w-[450px] h-[450px] absolute rounded-full shadow-[0_0_0_17px_rgba(157,63,4,0.2)]" />
         </motion.div>

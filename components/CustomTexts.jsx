@@ -29,12 +29,12 @@ export const TitleText = ({ title, textStyles }) => (
 
 //variants={fadeIn("up", "tween", 0.2, 1)}
 
-export const DescriptionText = ({ text }) => (
+export const DescriptionText = ({ text, textStyles }) => (
   <motion.p
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className="m-10 text-2xl font-light text-center text-teal-200"
+    className={`m-10 text-2xl font-light text-center text-teal-200 ${textStyles}`}
   >
     {text}
   </motion.p>

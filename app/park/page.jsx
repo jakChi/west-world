@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import React from "react";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
+
+import { hosts } from "@/data/hosts";
+import HostProfile from "@/components/HostProfile";
 
 const locations = [
   {
@@ -54,9 +56,16 @@ const areas = [
 ];
 
 export default function Park() {
+  const localHosts = hosts.filter(
+    (host) =>
+      host.history.map((hist) => {
+        return hist.park;
+      }).includes("park-1")
+  );
+
   return (
     <div>
-      <motion.div className="w-full h-screen flex">
+      <motion.section id="map" className="w-full h-screen flex">
         <motion.div className="relative">
           <Image
             className="m2 m-auto rounded-[50px]"
@@ -103,11 +112,10 @@ export default function Park() {
             ))}
           </ul>
         </motion.div>
-      </motion.div>
-      <div className="w-2/3 m-auto" viewport={{ once: false, amount: 0.25 }}>
+      </motion.section>
+      <motion.section id="loations" className="w-2/3 m-auto">
         {locations.map((location, index) => (
           <motion.div
-            viewport={{ once: false, amount: 0.25 }}
             key={index}
             id={location.name}
             className="flex justify-center items-center h-screen my-10"
@@ -122,14 +130,18 @@ export default function Park() {
                 width={1000}
                 height={1000}
                 alt={location.name}
-               
                 quality={100}
                 className="rounded-3xl"
               />
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.section>
+      <motion.section>
+        {localHosts.map((host, i) => (
+          <HostProfile key={i} {...host} />
+        ))}
+      </motion.section>
     </div>
   );
 }
