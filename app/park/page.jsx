@@ -78,7 +78,7 @@ export default function Park() {
 
           <Link href={"#Sweet Water"}>
             <Image
-              src="/maeves.webp"
+              src="/host-2.webp"
               width={100}
               height={50}
               alt="people"
@@ -88,7 +88,7 @@ export default function Park() {
 
           <Link href={"#Abernathy Ranch"}>
             <Image
-              src="/dolores.webp"
+              src="/host-1.webp"
               width={100}
               height={50}
               alt="people"

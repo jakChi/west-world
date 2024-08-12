@@ -8,21 +8,23 @@ export default function HostProfile({ ...props }) {
   //   return;
   // }
 
+  const currentVersion = props.history[props.history.length - 1];
+
   return (
     <div className="flex w-1/3 p-5 bg-amber-600 rounded-3xl">
       <Image
-        src={props.imgUrl}
-        alt={props.name}
+        src={currentVersion.imgUrl}
+        alt={currentVersion.name}
         width={300}
         height={300}
         className="rounded-3xl w-1/2"
       />
       <div className="flex flex-col w-1/2 mx-5">
         <h2 className="">
-          name: {props.name} {props.lastName}
+          name: {currentVersion.name} {currentVersion.lastName}
         </h2>
-        <h2>gedner: {props.gender}</h2>
-        <h2>age: {props.age}</h2>
+        <h2>gedner: {currentVersion.gender}</h2>
+        <h2>age: {currentVersion.age}</h2>
         <ol>
           Is connected with:
           {props.history
