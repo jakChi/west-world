@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import { hosts } from "@/data/hosts";
-import HostProfile from "@/components/HostProfile";
+import HostCard from "@/components/HostCard";
+import { TypingText } from "@/components/CustomTexts";
+import { listItem, staggerContainer } from "@/utils/motion";
+import Carousel from "@/components/Carousel";
 
 const locations = [
   {
@@ -56,11 +59,12 @@ const areas = [
 ];
 
 export default function Park() {
-  const localHosts = hosts.filter(
-    (host) =>
-      host.history.map((hist) => {
+  const localHosts = hosts.filter((host) =>
+    host.history
+      .map((hist) => {
         return hist.park;
-      }).includes("park-1")
+      })
+      .includes("park-1")
   );
 
   return (
@@ -113,12 +117,22 @@ export default function Park() {
           </ul>
         </motion.div>
       </motion.section>
-      <motion.section id="loations" className="w-2/3 m-auto">
+      <motion.section
+        id="loations"
+        className="w-2/3 m-auto"
+        initial="hidden"
+        whileInView="show"
+      >
+        <TypingText title={"| Featured Locations of Westworld"} />
         {locations.map((location, index) => (
           <motion.div
             key={index}
             id={location.name}
-            className="flex justify-center items-center h-screen my-10"
+            variants={listItem}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true }}
+            className="flex justify-center items-center h-[70vh]  my-10"
           >
             <div className="w-1/3 mx-2">
               <h1 className="my-2 text-3xl tracking-widest">{location.name}</h1>
@@ -137,10 +151,13 @@ export default function Park() {
           </motion.div>
         ))}
       </motion.section>
-      <motion.section>
-        {localHosts.map((host, i) => (
-          <HostProfile key={i} {...host} />
-        ))}
+      <motion.section
+        className=""
+        initial="hidden"
+        whileInView="show"
+      >
+        <TypingText title={"| Hosts of the Westworld"} />
+        <Carousel />
       </motion.section>
     </div>
   );

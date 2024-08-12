@@ -1,3 +1,5 @@
+import { delay } from "framer-motion";
+
 export const navVariants = {
   hidden: {
     opacity: 0,
@@ -45,6 +47,22 @@ export const staggerContainer = (staggerChildren, delayChildren) => ({
     },
   },
 });
+
+export const listItem = {
+  hidden: {
+    y: 100,
+    opacity: 0
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      type: "srping"
+    }
+    
+  }
+}
 
 export const textVariant = (delay) => ({
   hidden: {
