@@ -18,10 +18,10 @@ const navLinks = [
 export default function Navbar() {
   return (
     <motion.nav
-      initial={{ y: -10, opacity: 0 }}
+      initial={{ y: -20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.3, type: "tween", delay: 0.7}}
       className="absolute w-full h-20 p-3 px-20 m-auto text-center z-10 flex justify-start"
     >
       <Image
