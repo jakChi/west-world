@@ -51,22 +51,21 @@ export const staggerContainer = (staggerChildren, delayChildren) => ({
 export const listItem = {
   hidden: {
     y: 100,
-    opacity: 0
+    opacity: 0,
   },
   show: {
     y: 0,
     opacity: 1,
     transition: {
       delay: 0.5,
-      type: "srping"
-    }
-    
-  }
-}
+      type: "srping",
+    },
+  },
+};
 
 export const textVariant = (delay) => ({
   hidden: {
-    y: 50,
+    y: 100,
     opacity: 0,
   },
   show: {
@@ -74,7 +73,8 @@ export const textVariant = (delay) => ({
     opacity: 1,
     transition: {
       type: "spring",
-      duration: 1.25,
+      duration: 1.2,
+      stiffness: 100,
       delay,
     },
   },
@@ -86,14 +86,14 @@ export const textContainer = {
   },
   show: (i = 1) => ({
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: i * 0.1},
+    transition: { staggerChildren: 0.1, delayChildren: i * 0.1 },
   }),
 };
 
 export const textVariant2 = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: 30,
   },
   show: {
     opacity: 1,
@@ -101,6 +101,7 @@ export const textVariant2 = {
     transition: {
       type: "tween",
       ease: "easeIn",
+      duration: 0.3,
     },
   },
 };
@@ -195,5 +196,48 @@ export const gridItem = {
   visible: {
     y: 0,
     opacity: 1,
+  },
+};
+
+export const figVariants = {
+  inActive: {
+    x: 100,
+    opacity: 0,
+  },
+  active: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+      delay: 0.3,
+    },
+  },
+};
+
+export const figCaptionVariants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  }, 
+  visible: {
+    opacity: 1, 
+    y: 0,
+  }
+}
+
+export const titleVariants = {
+  hidden: {
+    x: -200,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+      delay: 0.5,
+    },
   },
 };

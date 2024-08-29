@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const navLinks = [
   { title: "THE PARK", href: "/park" },
-  { title: "THE HOSTS", href: "/park#hosts" },
+  { title: "THE HOSTS", href: "/hosts" },
   { title: "EXPERIENCE", href: "/explore" },
   { title: "PACKAGES", href: "/explore" },
   { title: "ABOUT", href: "/about" },

@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
+    --background-start-rgb: 16, 18, 54;
     --background-end-rgb: 0, 0, 0;
   }
 }
@@ -42,21 +42,31 @@ body {
 .gradient-01 {
   background-image: linear-gradient(
     270deg,
-    hsl(151, 93%, 39%) 0%,
+    hsl(0, 93%, 39%) 0%,
     hsl(186, 88%, 38%) 26%,
-    hsl(210, 92%, 30%) 74%,
+    hsl(0, 92%, 30%) 74%,
     hsl(222, 93%, 24%) 100%
   );
   filter: blur(150px);
 }
 
 .gradient-02 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 0px;
-  right: 0px;
+  background: rgb(67, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgb(72, 42, 238) 0%,
+    rgb(3, 195, 134) 50%,
+    rgb(72, 42, 238) 100%
+  );
+  filter: blur(120px);
+}
 
-  background: #7aebfb;
-  filter: blur(190px);
+.explore-gradient {
+  background: linear-gradient(
+    90deg,
+    #a509ff 0%,
+    #1e089e 50%,
+    #b01ae7 100%
+  );
+  filter: blur(150px);
 }

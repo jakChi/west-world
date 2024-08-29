@@ -6,37 +6,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import { hosts } from "@/data/hosts";
-import HostCard from "@/components/HostCard";
 import { TypingText } from "@/components/CustomTexts";
-import { listItem, staggerContainer } from "@/utils/motion";
-import Carousel from "@/components/Carousel";
+import { listItem } from "@/utils/motion";
+import InfiniteImages from "@/components/InfiniteImages";
+import { locations } from "@/data/locations";
 
-const locations = [
-  {
-    name: "Train Platform",
-    img: "/train-platform.jpg",
-    description:
-      "The Train Platform is a location in the series Westworld. It is where the train, the 'Black Ridge Limited', stops in Sweetwater when it brings passengers, guests and at least one host (Teddy), into the park. There is no station building, only a platform where the train stops and passengers disembark.",
-  },
-  {
-    name: "Sweet Water",
-    img: "/sweet-water.jpeg",
-    description:
-      "The train will deposit you in this bustling town upon your arrival to Westworld. This vibrant community features a number of friendly people engaged in all sorts of trade, but stay on your toes — the occasional bandit or ne'er-do-well could sneak in. Play a game of faro at the Mariposa Saloon or relax in luxury lodging at the Coronado — no matter what you choose, our hosts aim to please.",
-  },
-  {
-    name: "Mariposa Saloon",
-    img: "/mariposa-saloon.jpg",
-    description:
-      "The Mariposa Saloon was the local saloon and brothel in Sweetwater, Westworld. It is mainly run by madam Maeve Millay, with her assistant and fellow courtesan, Clementine Pennyfeather.",
-  },
-  {
-    name: "Abernathy Ranch",
-    img: "/abernathy-ranch.png",
-    description:
-      "Abernathy Ranch is the home of the decent and hardworking Abernathy family. Located near Sweetwater Hills, the breathtaking homestead overlooks the rolling hills and offers spectacular views of the Sweetwater River. Tend to the herd and work the land during the day...just stay alert after dark, as the secluded ranch is known to be a target of bandits.",
-  },
-];
 
 const areas = [
   "High Plains",
@@ -67,8 +41,12 @@ export default function Park() {
       .includes("park-1")
   );
 
+  const localImages = localHosts.map(
+    (host) => host.history[host.history.length - 1].imgUrl
+  );
+
   return (
-    <div>
+    <div className="w-full m-auto">
       <motion.section id="map" className="w-full h-screen flex">
         <motion.div className="relative">
           <Image
@@ -123,7 +101,7 @@ export default function Park() {
         initial="hidden"
         whileInView="show"
       >
-        <TypingText title={"| Featured Locations of Westworld"} />
+        <TypingText title={"| Locations of Westworld"} />
         {locations.map((location, index) => (
           <motion.div
             key={index}
@@ -132,11 +110,10 @@ export default function Park() {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true }}
-            className="flex justify-center items-center h-[70vh]  my-10"
+            className="relative flex justify-center items-center h-[70vh]  my-10"
           >
             <div className="w-1/3 mx-2">
-              <h1 className="my-2 text-3xl tracking-widest">{location.name}</h1>
-              <p className="font-mono">{location.description}</p>
+              <h1 className="my-2 text-6xl font-semibold tracking-widest">{location.name}</h1>
             </div>
             <div className="w-2/3">
               <Image
@@ -148,16 +125,14 @@ export default function Park() {
                 className="rounded-3xl"
               />
             </div>
+            <p className="absolute bottom-20 w-full p-5 rounded-2xl rounded-tr-none bg-teal-800/50 backdrop-blur-lg font-mono">{location.description}</p>
           </motion.div>
         ))}
       </motion.section>
-      <motion.section
-        className=""
-        initial="hidden"
-        whileInView="show"
-      >
+      <motion.section className="" initial="hidden" whileInView="show">
         <TypingText title={"| Hosts of the Westworld"} />
-        <Carousel />
+
+        <InfiniteImages images={localImages} />
       </motion.section>
     </div>
   );

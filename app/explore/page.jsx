@@ -1,10 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import ExploreCard from "@/components/ExploreCard";
-import { NarrativeCard } from "@/components/NarrativeCard";
-import Image from "next/image";
-
 import { AnimatePresence, motion } from "framer-motion";
 
 import {
@@ -18,108 +14,10 @@ import {
   gridContainer,
   gridItem,
 } from "@/utils/motion";
-
-import park1Logo from "@/public/park-1-logo.png";
-import park2Logo from "@/public/park-2-logo.png";
-import park3Logo from "@/public/park-3-logo.png";
-import park4Logo from "@/public/park-4-logo.png";
-import park5Logo from "@/public/delos-logo.png";
-import park6Logo from "@/public/park-6-logo.png";
-
-const parks = [
-  {
-    id: "park-1",
-    name: "Westworld",
-    img: "/park-1.jpg",
-    logo: park1Logo,
-    description:
-      "Experience the first vacation destination where you can live without limits. Westworld is a meticulously crafted and artfully designed park offering an unparalleled, immersive world where you have the freedom to become who you’ve always wanted to be — or who you never knew you were. Exist free of rules, laws or judgment. No impulse is taboo. Our hosts are here to fulfill your every desire. They look forward to serving you.",
-  },
-  {
-    id: "park-2",
-    name: "Shōgunworld",
-    img: "/park-2.webp",
-    logo: park2Logo,
-    description:
-      "For those for whom Westworld is not enough, the true connoisseur of gore can indulge their fantasies with the slash of a katana. Modeled after Japan's Edo period, Shogun World offers a chance for guests to embrace their inner warrior, in a landscape of highest beauty and darkest horror. Let your true self take shape in the land where self-discovery is an art form.",
-  },
-  {
-    id: "park-3",
-    name: "Warworld",
-    img: "/park-3.webp",
-    logo: park3Logo,
-    description:
-      "War is a mystery wrapped in an enigma that only a true spymaster can solve. A challenge for the guest who prefers mind over matter, this WWII epic plunges you into a dangerous maze of tradecraft and seduction from which few escape. Dare to undertake this harrowing journey of risk and romance, and get the chance to defeat history’s ultimate villains: the Nazis.",
-  },
-  {
-    id: "park-4",
-    name: "Medievalworld",
-    img: "/park-4.jpg",
-    logo: park4Logo,
-    description:
-      "This is Medievalworld, where we have reconstructed 13th-century Europe. A world of chivalry and combat, romance and excitement. Our teams of engineers have spared no expense in this re-creation, precise to the smallest detail. We added some fantasy falvours in order to make your quest more mistical.",
-  },
-  {
-    id: "park-5",
-    name: "Park 5",
-    img: "/park-5.webp",
-    logo: park5Logo,
-    description:
-      "Park Five of Delos Destinations is based on the suburbia of the United States of America and is for Defense Contracts Only.",
-  },
-  {
-    id: "park-6",
-    name: "The Raj",
-    img: "/park-6.png",
-    logo: park6Logo,
-    description:
-      "Come and experience the grandeur and love of a place lost in time. If being pampered by our world-class spa isn’t your cup of Darjeeling Tea, the park's jungles and mountains are your only chance to glimpse magnificent beasts long vanished from your world.",
-  },
-];
-const narratives = [
-  {
-    id: "narrative-1",
-    title: "The Outlaw’s Quest",
-    plot: "Guests can join a notorious gang and participate in a series of high-stakes heists, train robberies, and showdowns. Choices made during the quest will affect their reputation and alliances within the park, leading to different endings.",
-    img: "/narrative-1.jpg",
-    park: "Westworld",
-  },
-  {
-    id: "narrative-2",
-    title: "The Lawman’s Dilemma",
-    plot: "Step into the shoes of a sheriff or deputy tasked with bringing justice to a lawless town. Investigate crimes, solve mysteries, and decide whether to uphold the law or bend it to your will.",
-    img: "/narrative-2.jpg",
-    park: "Westworld",
-  },
-  {
-    id: "narrative-3",
-    title: "The Rancher’s Legacy",
-    plot: "Help a family of ranchers defend their homestead from land grabbers and rival ranchers. Guests can choose to use diplomacy, form alliances, or take up arms to protect the land.",
-    img: "/narrative-3.jpg",
-    park: "Westworld",
-  },
-  {
-    id: "narrative-4",
-    title: "The Ronin’s Path",
-    plot: "Assume the role of a wandering samurai seeking redemption. Guests can master the art of the sword, face off against powerful adversaries, and make choices that determine their legacy.",
-    img: "/narrative-4.jpg",
-    park: "Shōgunworld",
-  },
-  {
-    id: "narrative-5",
-    title: "The Geisha’s Secret",
-    plot: "Unravel the mysteries of a geisha house, where intrigue and danger lurk behind every silk screen. Guests must navigate complex social dynamics and uncover hidden plots to protect those they care about.",
-    img: "/narrative-5.jpg",
-    park: "Shōgunworld",
-  },
-  {
-    id: "narrative-6",
-    title: "The Daimyo’s Court",
-    plot: "Become an advisor to a powerful daimyo, navigating the treacherous waters of feudal politics. Guests must balance the demands of honor, loyalty, and power to ensure their daimyo’s supremacy.",
-    img: "/narrative-6.jpg",
-    park: "Shōgunworld",
-  },
-];
+import { parks } from "@/data/parks";
+import { narratives } from "@/data/narratives";
+import ExploreCard from "@/components/ExploreCard";
+import Link from "next/link";
 
 const narrativeIntro =
   "The narratives of the Delos Destinations parks are designed to provide a wide range of experiences, each catering to different interests and desires. Here are some examples of narratives that could be found in different parks.";
@@ -135,8 +33,9 @@ export default function Explore() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: "some" }}
-        className={`mx-auto flex flex-col`}
+        className={`mx-auto flex flex-col relative`}
       >
+        <div className="explore-gradient absolute top-0 w-[20rem] h-[20rem] " />
         <TypingText title={`| The World`} textStyles="text-center" />
         <TitleText
           title={
@@ -149,7 +48,7 @@ export default function Explore() {
         />
         <DescriptionText
           text={
-            "Delos Destinations is offering you an unparalleled experiences in our state-of-the-art theme parks. Each park is a fully realized world where you can step into the past or an entirely different reality, living out your fantasies in environments that are as authentic as you are thrilling. These parks are not just attractions but entire worlds, where the boundary between fiction and reality blurs."
+            "Delos Destinations is offering you an unparalleled experiences in our state of the art theme parks. These parks are not just attractions but entire worlds, where the boundary between fiction and reality blurs."
           }
         />
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
@@ -169,7 +68,7 @@ export default function Explore() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: "some" }}
-        className="m-auto my-32 h-screen"
+        className="m-auto my-32 h-screen relative"
       >
         <TypingText title={`| The Narrative`} />
         <TitleText
@@ -194,7 +93,7 @@ export default function Explore() {
               layoutId={narrative.id}
               variants={gridItem}
               onClick={() => !activeNarrative && setActiveNarrative(narrative)}
-              className={`w-full h-72 m-auto rounded-3xl p-3 cursor-pointer hover:bg-amber-700/40  transition-colors delay-200 duration-200 hover:delay-0`}
+              className={`w-full h-72 m-auto rounded-3xl p-3 cursor-pointer hover:bg-indigo-600/60 transition-colors delay-200 duration-200 hover:delay-0`}
             >
               <motion.img
                 src={narrative.img}
@@ -209,7 +108,7 @@ export default function Explore() {
             {activeNarrative && (
               <motion.div
                 layoutId={activeNarrative.id}
-                className={`absolute -top-5 left-44 w-[70%] h-[60vh] rounded-3xl p-3 bg-amber-900`}
+                className={`absolute -top-5 left-44 w-[70%] h-[60vh] rounded-3xl p-3 bg-indigo-900/70 backdrop-blur-lg`}
               >
                 <motion.img
                   src={activeNarrative.img}
@@ -231,7 +130,17 @@ export default function Explore() {
             )}
           </AnimatePresence>
         </motion.div>
+        <div className="absolute top-10 left-1/2 w-[40rem] h-[15rem] -rotate-45 rounded-full gradient-02 -z-10" />
       </motion.div>
+      <motion.p className="mt-20 text-xl bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent text-center font-mono tracking-widest">
+        Why take our word for it when you can experience it yourself{" "}
+      </motion.p>
+      <Link
+        href="/singup"
+        className="block w-[10%] m-auto my-10 text-center uppercase font-extrabold text-teal-400 bg-purple-950 animate-bounce hover:animate-none hover:shadow-[0_0_100px_5px_rgb(139,0,252)] transition-all duration-500 p-2 rounded-lg"
+      >
+        Sign up
+      </Link>
     </section>
   );
 }
