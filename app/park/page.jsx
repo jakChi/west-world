@@ -70,7 +70,7 @@ export default function Park() {
 
           <Link href={"#Abernathy Ranch"}>
             <Image
-              src="/host-1.webp"
+              src="/host-1-4.webp"
               width={100}
               height={50}
               alt="people"
@@ -81,7 +81,7 @@ export default function Park() {
 
         <motion.div>
           <motion.h1 className="text-5xl text-center font-extrabold m-5 p-4 rounded-lg text-emerald-500">
-            Map of the Park
+            WESTWORLD
           </motion.h1>
           <ul className="text-xl text-center">
             {areas.map((area, index) => (

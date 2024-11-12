@@ -68,7 +68,7 @@ export default function Explore() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: "some" }}
-        className="m-auto my-32 h-screen relative"
+        className="m-auto my-32 h-fit relative"
       >
         <TypingText title={`| The Narrative`} />
         <TitleText
@@ -108,7 +108,7 @@ export default function Explore() {
             {activeNarrative && (
               <motion.div
                 layoutId={activeNarrative.id}
-                className={`absolute -top-5 left-44 w-[70%] h-[60vh] rounded-3xl p-3 bg-indigo-900/70 backdrop-blur-lg`}
+                className={`absolute -top-5 left-44 w-[70%] h-[70vh] rounded-3xl p-3 bg-indigo-900/70 backdrop-blur-lg`}
               >
                 <motion.img
                   src={activeNarrative.img}
@@ -132,15 +132,6 @@ export default function Explore() {
         </motion.div>
         <div className="absolute top-10 left-1/2 w-[40rem] h-[15rem] -rotate-45 rounded-full gradient-02 -z-10" />
       </motion.div>
-      <motion.p className="mt-20 text-xl bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent text-center font-mono tracking-widest">
-        Why take our word for it when you can experience it yourself{" "}
-      </motion.p>
-      <Link
-        href="/singup"
-        className="block w-[10%] m-auto my-10 text-center uppercase font-extrabold text-teal-400 bg-purple-950 animate-bounce hover:animate-none hover:shadow-[0_0_100px_5px_rgb(139,0,252)] transition-all duration-500 p-2 rounded-lg"
-      >
-        Sign up
-      </Link>
     </section>
   );
 }

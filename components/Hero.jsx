@@ -23,7 +23,7 @@ export default function Hero() {
             width={1200}
             height={1080}
             alt="hero_cover"
-            priority
+            priority={true}
             className="w-full h-full object-cover"
           />
           <motion.div
@@ -40,8 +40,8 @@ export default function Hero() {
             className="absolute top-1/2 left-1/2 flex justify-center items-center "
           >
             <div className="w-[530px] h-[530px] absolute rounded-full shadow-[0_0_100px_1000px_rgba(107,86,64,0.4)]" />
-            <div className="w-[570px] h-[570px] absolute animate-pulse rounded-full shadow-[0_0_100px_500px_rgba(107,86,64,0.3)]" />
-            <div className="w-[400px] h-[400px] absolute animate-ping rounded-full shadow-[0_0_0_17px_rgba(157,63,4,0.2)]" />
+            <div className="w-[470px] h-[470px] absolute animate-pulse rounded-full shadow-[0_0_100px_500px_rgba(107,86,64,0.3)]" />
+            <div className="w-[400px] h-[400px] absolute rounded-full shadow-[0_0_0_17px_rgba(157,63,4,0.2)]" />
           </motion.div>
         </motion.div>
         <motion.div
@@ -80,7 +80,7 @@ export default function Hero() {
         initial="hidden"
         whileInView={"show"}
         whileTap={{ transform: "translateX(100%)" }}
-        className="z-10 w-72 h-16 absolute right-0 top-[25rem] text-lg font-extrabold tracking-[10px] bg-stone-600/40 backdrop-blur-sm backdrop-brightness-150"
+        className="z-10 w-72 h-16 absolute right-0 top-[20rem] text-lg font-extrabold tracking-[10px] bg-stone-600/40 backdrop-blur-sm backdrop-brightness-150"
       >
         <Link href="/park" className="block w-full h-full p-5">
           THE PARK ➡

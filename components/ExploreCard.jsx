@@ -20,7 +20,7 @@ export default function ExploreCard({
       variants={fadeIn("right", "spring", index * 0.5, 0.3)}
       className={`relative ${
         active === id ? "lg:flex-[3.5] flex-[10]" : "lg:flex-[0.5] flex-[2]"
-      } flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex`}
+      } flex items-center justify-center min-w-[120px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex`}
     >
       <Image
         src={img}
