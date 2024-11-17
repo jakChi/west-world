@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-//import { navVariants } from "@/utils/motion";
-
 const navLinks = [
   { title: "THE PARK", href: "/park" },
   { title: "THE HOSTS", href: "/hosts" },

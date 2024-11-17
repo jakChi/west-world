@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
-import { figVariants, figCaptionVariants, titleVariants, } from "@/utils/motion";
+import { figVariants, titleVariants } from "@/utils/motion";
 
 export default function TechFig({ imgUrl, title, caption }) {
   return (

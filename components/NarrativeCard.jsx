@@ -1,24 +1,11 @@
 import { motion } from "framer-motion";
 
-export default function NarrativeCard ({ id, index, title, plot, img, park, activate }) {
-  let bgColor = null;
-
-  switch (park) {
-    case "Westworld":
-      bgColor = "bg-yellow-900";
-      break;
-    case "Shōgunworld":
-      bgColor = "bg-teal-950";
-      break;
-    default:
-      bgColor = "bg-slate-600";
-  }
-
+export default function NarrativeCard ({ id, title, plot, img, activate }) {
   return (
     <motion.div
       layoutId={id}
       onClick={() => activate(id)}
-      className={`w-[90%] h-72 m-auto ${bgColor} rounded-3xl p-3`}
+      className={`w-[90%] h-72 m-auto rounded-3xl p-3`}
     >
       <motion.img
         src={img}

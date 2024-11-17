@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 import { motion } from "framer-motion";
-import { fadeIn, slideIn, staggerContainer } from "@/utils/motion";
+import { slideIn, staggerContainer } from "@/utils/motion";
 
 export default function Hero() {
   return (

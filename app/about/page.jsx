@@ -176,7 +176,7 @@ export default function About() {
 
           <div className="m-20 flex justify-center items-center">
             <Image
-              src={"/dinamic-environment.jpg"}
+              src={"/dinamic-environment.png"}
               width={500}
               height={500}
               alt="branch"
