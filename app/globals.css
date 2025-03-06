@@ -59,14 +59,16 @@ body {
     rgb(72, 42, 238) 100%
   );
   filter: blur(120px);
+  opacity: 0.5;
 }
 
 .explore-gradient {
   background: linear-gradient(
     90deg,
     #a509ff 0%,
-    #1e089e 50%,
-    #b01ae7 100%
+    #1e089e 60%
   );
-  filter: blur(150px);
+  filter: blur(200px);
+  opacity: 0.7;
+  border-radius: 50%;
 }

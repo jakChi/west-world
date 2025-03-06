@@ -35,7 +35,7 @@ export default function Explore() {
         viewport={{ once: true, amount: "some" }}
         className={`mx-auto flex flex-col relative`}
       >
-        <div className="explore-gradient absolute top-0 w-[20rem] h-[20rem] " />
+        <div className="explore-gradient absolute top-0 w-[20rem] h-[20rem]" />
         <TypingText title={`| The World`} textStyles="text-center" />
         <TitleText
           title={
