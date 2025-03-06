@@ -36,9 +36,10 @@ export default function ExploreCard({
         >
           <Image
             src={logo}
+            width={1000}
+            height={1000}
             alt={`${id} ${logo}`}
             className="object-cover w-full"
-            fill
           />
         </div>
       ) : null}
@@ -66,9 +67,10 @@ export default function ExploreCard({
             >
               <Image
                 src={logo}
+                width={1000}
+                height={1000}
                 alt={`${id} ${logo}`}
                 className="object-cover w-full"
-                fill
               />
             </div>
           </div>

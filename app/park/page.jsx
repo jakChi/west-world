@@ -121,7 +121,6 @@ export default function Park() {
                 width={1000}
                 height={1000}
                 alt={location.name}
-                quality={100}
                 className="rounded-3xl"
               />
             </div>
